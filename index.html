@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Student Portal - Register</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="card">
+    <h1>My Student Portal</h1>
+    <p class="lead">Create your account to see the grade board.</p>
+
+    <!-- Registration form -->
+    <form id="regForm" novalidate>
+        
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" autocomplete="name">
+        <small id="nameCounter"></small>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" autocomplete="email">
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone (9 digits)</label>
+        <input type="tel" id="phone" name="phone" inputmode="numeric" autocomplete="tel-national">
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" autocomplete="new-password">
+      </div>
+
+      <div class="field">
+        <label for="confirm">Confirm password</label>
+        <input type="password" id="confirm" name="confirm" autocomplete="new-password">
+      </div>
+
+      <div class="field">
+        <label for="city">City</label>
+        <select id="city" name="city">
+          <option value="">Choose a city</option>
+          <option value="Tashkent">Tashkent</option>
+          <option value="Samarkand">Samarkand</option>
+          <option value="Bukhara">Bukhara</option>
+          <option value="Khiva">Khiva</option>
+        </select>
+        <small id="cityMsg"></small>
+      </div>
+
+      <ul id="errors" class="errors" aria-live="polite"></ul>
+
+      <button type="submit">Register</button>
+    </form>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+
+</html>
