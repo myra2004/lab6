@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Student Portal - Board</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <main class="card wide">
+    <h1 id="welcome"></h1>
+    <p class="lead" id="loadedAt"></p>
+
+    <div class="toolbar">
+      <button type="button" id="backBtn">Back</button>
+      <label for="sortSelect">Sort by</label>
+      <select id="sortSelect">
+        <option value="name">Name (A to Z)</option>
+        <option value="marks">Marks (high to low)</option>
+      </select>
+    </div>
+
+    <p id="boardError" class="board-error" role="alert"></p>
+
+    <div class="table-wrap">
+      <table id="gradeTable">
+        <thead>
+          <tr><th>Name</th><th>Marks</th><th>Grade</th></tr>
+        </thead>
+        <tbody id="gradeBody"></tbody>
+      </table>
+    </div>
+  </main>
+</body>
+
+</html>
