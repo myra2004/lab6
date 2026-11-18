@@ -1,7 +1,7 @@
 /* Variables */
-/* --accent starts with m colour regarding Muqaddas */
+/* --accent starts with m colour regarding Muqaddas (First Name) */
 :root {
-  --accent: Maroon;
+  --accent: maroon;
   --bg: #f3f5f7;
   --text: #1d2428;
   --error: #c62828;

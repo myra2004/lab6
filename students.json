@@ -1,9 +1,9 @@
 [
-  { "name": "Aziza Karimova", "marks": 82 },
-  { "name": "Bobur Rakhimov", "marks": 35 },
-  { "name": "Dilnoza Yusupova", "marks": 61 },
-  { "name": "Jasur Tursunov", "marks": 90 },
-  { "name": "Malika Saidova", "marks": 48 },
-  { "name": "Sardor Alimov", "marks": 70 },
-  { "name": "Muqaddas Amirova", "marks": 85 }
+  { "name": "Aziza Karimova", "marks": 82, "city": "Tashkent" },
+  { "name": "Bobur Rakhimov", "marks": 35, "city": "Samarkand" },
+  { "name": "Dilnoza Yusupova", "marks": 61, "city": "Bukhara" },
+  { "name": "Jasur Tursunov", "marks": 90 , "city": "Khiva" },
+  { "name": "Malika Saidova", "marks": 48, "city": "Tashkent" },
+  { "name": "Sardor Alimov", "marks": 70, "city": "Samarkand" },
+  { "name": "Muqaddas Amirova", "marks": 85, "city": "Tashkent" }
 ]

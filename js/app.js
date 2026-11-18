@@ -185,6 +185,7 @@ function initBoardPage() {
     render(copy);
   }
 
+  //fetching students.json
   async function loadStudents() {
     try {
       const res = await fetch("students.json");
