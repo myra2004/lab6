@@ -135,3 +135,81 @@ function initRegisterPage() {
   });
 }
 
+
+// Board page
+function initBoardPage() {
+  const welcome = document.getElementById("welcome");
+  const loadedAt = document.getElementById("loadedAt");
+  const body = document.getElementById("gradeBody");
+  const errorBox = document.getElementById("boardError");
+  const sortSelect = document.getElementById("sortSelect");
+  const backBtn = document.getElementById("backBtn");
+
+  const params = new URLSearchParams(window.location.search);
+  const userName = params.get("name") || "guest";
+  welcome.textContent = "Welcome, " + userName;
+  loadedAt.textContent = "Page loaded: " + new Date().toLocaleString();
+
+  let students = [];
+
+  function render(list) {
+    body.textContent = "";
+    for (const student of list) {
+      const row = document.createElement("tr");
+
+      const nameCell = document.createElement("td");
+      nameCell.textContent = student.name;
+
+      const marksCell = document.createElement("td");
+      marksCell.textContent = student.marks;
+
+      const result = grade(student.marks);
+      const gradeCell = document.createElement("td");
+      gradeCell.textContent = result;
+      gradeCell.classList.add("grade-" + result);
+
+      row.appendChild(nameCell);
+      row.appendChild(marksCell);
+      row.appendChild(gradeCell);
+      body.appendChild(row);
+    }
+  }
+
+  function applySort() {
+    const copy = [...students]; // copy first, never sort the original
+    if (sortSelect.value === "name") {
+      copy.sort((a, b) => a.name.localeCompare(b.name));
+    } else {
+      copy.sort((a, b) => b.marks - a.marks);
+    }
+    render(copy);
+  }
+
+  async function loadStudents() {
+    try {
+      const res = await fetch("students.json");
+      if (!res.ok) {
+        throw new Error("Server answered " + res.status);
+      }
+      students = await res.json();
+      render(students); // original order: you are last
+    } catch (err) {
+      errorBox.textContent = "Could not load grades: " + err.message;
+    }
+  }
+
+  sortSelect.addEventListener("change", applySort);
+  backBtn.addEventListener("click", () => history.back());
+
+  loadStudents();
+}
+
+// Start the right page
+if (document.getElementById("regForm") !== null) {
+  initRegisterPage();
+}
+if (document.getElementById("gradeTable") !== null) {
+  initBoardPage();
+}
+
+console.log("Enrollment: " + ENROLLMENT);
